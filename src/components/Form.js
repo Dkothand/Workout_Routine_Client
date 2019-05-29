@@ -28,6 +28,12 @@ class Form extends React.Component {
             reps: this.state.reps
         })
         // clear input states
+        this.setState({
+            name: '',
+            target_area: '',
+            sets: 0,
+            reps: 0
+        })
     }
     render() {
         return (
