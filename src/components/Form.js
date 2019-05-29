@@ -10,6 +10,12 @@ class Form extends React.Component {
             sets: 0,
             reps: 0
         }
+        this.handleChange = this.handleChange.bind(this)
+    }
+    handleChange(event) {
+        this.setState({
+            [event.target.id]: event.target.value
+        })
     }
     render() {
         return (
@@ -19,25 +25,29 @@ class Form extends React.Component {
                     placeholder={'Exercise name'}
                     type={'text'}
                     id={'name'}
-                    value={this.state.name}/>
+                    value={this.state.name}
+                    handleChange={this.handleChange}/>
                 <Input
                     name={'target_area'}
                     placeholder={'Target Area'}
                     type={'text'}
                     id={'target_area'}
-                    value={this.state.target_area}/>
+                    value={this.state.target_area}
+                    handleChange={this.handleChange}/>
                 <Input
                     name={'sets'}
                     placeholder={'Sets'}
                     type={'number'}
                     id={'sets'}
-                    value={this.state.sets}/>
+                    value={this.state.sets}
+                    handleChange={this.handleChange}/>
                 <Input
                     name={'reps'}
                     placeholder={'Reps'}
                     type={'number'}
                     id={'reps'}
-                    value={this.state.reps}/>
+                    value={this.state.reps}
+                    handleChange={this.handleChange}/>
                 <input type="submit" value="Create Exercise"/>
             </form>
         );
