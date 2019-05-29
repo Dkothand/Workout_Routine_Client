@@ -1,5 +1,6 @@
 import React from 'react'
 import Exercise from './Exercise.js'
+import Form from './Form.js'
 
 class ExerciseList extends React.Component {
     constructor(props) {
@@ -23,6 +24,7 @@ class ExerciseList extends React.Component {
         return(
             <div className="exercise-list">
                 <h2>Exercise List</h2>
+                <Form/>
                 {this.state.exercises.map(exercise => {
                     return <Exercise key={exercise.id} exercise={exercise}/>
                 })}
