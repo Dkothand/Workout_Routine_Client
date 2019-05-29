@@ -11,15 +11,27 @@ class Form extends React.Component {
             reps: 0
         }
         this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
     handleChange(event) {
         this.setState({
             [event.target.id]: event.target.value
         })
     }
+    handleSubmit(event) {
+        event.preventDefault()
+        // call handleSubmit from ExerciseList
+        this.props.handleSubmit({
+            name: this.state.name,
+            target_area: this.state.target_area,
+            sets: this.state.sets,
+            reps: this.state.reps
+        })
+        // clear input states
+    }
     render() {
         return (
-            <form>
+            <form onSubmit={this.handleSubmit}>
                 <Input
                     name={'name'}
                     placeholder={'Exercise name'}

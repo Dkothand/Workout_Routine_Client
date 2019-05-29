@@ -8,6 +8,7 @@ class ExerciseList extends React.Component {
         this.state = {
             exercises: []
         }
+        this.addExercise = this.addExercise.bind(this)
     }
     componentDidMount() {
         this.getExercises()
@@ -20,11 +21,28 @@ class ExerciseList extends React.Component {
         }))
         .catch(err => console.error(err))
     }
+    addExercise(formInputs) {
+        // fetch request to /exercises create POST
+        fetch('/exercises', {
+            body: JSON.stringify(formInputs),
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            }
+        }).then(createdExercise => {
+            return createdExercise.json()
+        }).then(jsonExercise => {
+            this.setState({
+                exercises: [jsonExercise, ...this.state.exercises]
+            })
+        }).catch(err => console.error(err))
+    }
     render() {
         return(
             <div className="exercise-list">
                 <h2>Exercise List</h2>
-                <Form/>
+                <Form handleSubmit={this.addExercise}/>
                 {this.state.exercises.map(exercise => {
                     return <Exercise key={exercise.id} exercise={exercise}/>
                 })}
