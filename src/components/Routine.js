@@ -24,7 +24,9 @@ class Routine extends React.Component {
                     Add Exercise
                 </button>
                 {(this.state.listOpen)
-                ? <Dropdown/>
+                ? <Dropdown 
+                routine={this.props.routine}
+                handleClick={this.props.handleClick}/>
                 : null}
                 <ul>
                     {(this.props.routine.exercises.length)

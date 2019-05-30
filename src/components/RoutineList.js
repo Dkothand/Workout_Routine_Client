@@ -9,6 +9,7 @@ class RoutineList extends React.Component {
             routines: []
         }
         this.createRoutine = this.createRoutine.bind(this)
+        this.addExercise = this.addExercise.bind(this)
     }
     componentDidMount() {
         // Get all routines from database
@@ -17,6 +18,9 @@ class RoutineList extends React.Component {
         .then(jsonData => this.setState({
             routines: jsonData
         }))
+    }
+    addExercise(exerciseId, routineId) {
+        console.log(`exercise: ${exerciseId}, routine: ${routineId}`)
     }
     createRoutine(formData) {
         // Add routine to database and render on success
@@ -42,7 +46,8 @@ class RoutineList extends React.Component {
                 return(
                     <Routine 
                     key={routine.id}
-                    routine={routine}/>
+                    routine={routine}
+                    handleClick={this.addExercise}/>
                     // <div key={routine.id}>
                     //     <h3>{routine.name} - {routine.difficulty}</h3>
                     //     <ul>
