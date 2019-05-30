@@ -6,7 +6,7 @@ class NewRoutine extends React.Component {
         return (
             <>
                 <h2>New Routine</h2>
-                <RoutineForm/>
+                <RoutineForm handleSubmit={this.props.handleSubmit}/>
             </>
         )
     }

@@ -18,9 +18,13 @@ class RoutineForm extends React.Component {
     }
     handleSubmit(event) {
         event.preventDefault()
-        console.log({
+        this.props.handleSubmit({
             name: this.state.name,
             difficulty: this.state.difficulty
+        })
+        this.setState({
+            name: '',
+            difficulty: ''
         })
     }
     render() {
