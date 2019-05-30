@@ -10,14 +10,12 @@ class RoutineList extends React.Component {
         }
         this.createRoutine = this.createRoutine.bind(this)
         this.addExercise = this.addExercise.bind(this)
+        this.getExercises = this.getExercises.bind(this)
     }
     componentDidMount() {
         // Get all routines from database
-        fetch('/routines')
-        .then(res => res.json())
-        .then(jsonData => this.setState({
-            routines: jsonData
-        }))
+        this.getExercises()
+        
     }
     addExercise(exerciseId, routineId) {
         console.log(`exercise: ${exerciseId}, routine: ${routineId}`)
@@ -33,7 +31,10 @@ class RoutineList extends React.Component {
                 'Content-Type': 'application/json'
             }
         }).then(res => res.json())
-        .then(jsonData => console.log(jsonData))
+        .then(jsonData => {
+            // Reload this.state.routines to render added exercise, not ideal, look into moving states so the added exercise renders in the specific Routine component
+            this.getExercises()
+        })
         .catch(err => console.error(err))
     }
     createRoutine(formData) {
@@ -50,6 +51,13 @@ class RoutineList extends React.Component {
             this.setState({
             routines: [jsonRoutine, ...this.state.routines]
         })).catch(err => console.error(err))
+    }
+    getExercises() {
+        fetch('/routines')
+        .then(res => res.json())
+        .then(jsonData => this.setState({
+            routines: jsonData
+        }))
     }
     render() {
         return(
