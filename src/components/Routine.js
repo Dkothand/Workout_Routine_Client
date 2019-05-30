@@ -8,15 +8,16 @@ class Routine extends React.Component {
             listOpen: false
         }
         this.handleClick = this.handleClick.bind(this)
+        this.removeRoutine = this.removeRoutine.bind(this)
     }
     handleClick() {
         this.setState(prevState => ({
             listOpen: !prevState.listOpen
         }))
     }
-    removeExercise(id) {
+    removeRoutine(id) {
         // console.log(`exercise id ${id}`)
-        this.props.deleteExercise(id)
+        this.props.deleteRoutine(id)
     }
     render() {
         return(
@@ -26,6 +27,9 @@ class Routine extends React.Component {
                 </h3>
                 <button onClick={this.handleClick}>
                     Add Exercise
+                </button>
+                <button onClick={() => this.removeRoutine(this.props.routine.id)}>
+                    Delete Routine
                 </button>
                 {(this.state.listOpen)
                 ? <Dropdown 
@@ -37,7 +41,6 @@ class Routine extends React.Component {
                     ? this.props.routine.exercises.map(exercise => {
                         return(
                             <li key={exercise.id}>{exercise.name}
-                            <span onClick={() => this.removeExercise(exercise.id)}>&times;</span>
                             </li>
                         )
                     })

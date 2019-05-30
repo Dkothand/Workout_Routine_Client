@@ -11,6 +11,7 @@ class RoutineList extends React.Component {
         this.createRoutine = this.createRoutine.bind(this)
         this.addExercise = this.addExercise.bind(this)
         this.getExercises = this.getExercises.bind(this)
+        this.deleteRoutine = this.deleteRoutine.bind(this)
     }
     componentDidMount() {
         // Get all routines from database
@@ -37,9 +38,22 @@ class RoutineList extends React.Component {
         })
         .catch(err => console.error(err))
     }
-    deleteExercise(exerciseId) {
+    deleteRoutine(routineId) {
         // destroys association between exercise and routine in database, rerenders state to update browser
-        console.log(exerciseId)
+        console.log(routineId)
+        fetch(`/routines/${routineId}`, {
+            body: JSON.stringify({
+                routine_id: routineId
+            }),
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            }
+        }).then(res => {
+            this.getExercises()
+        })
+        .catch(err => console.error(err))
     }
     createRoutine(formData) {
         // Add routine to database and render on success
@@ -74,7 +88,7 @@ class RoutineList extends React.Component {
                     key={routine.id}
                     routine={routine}
                     handleClick={this.addExercise}
-                    deleteExercise={this.deleteExercise}/>
+                    deleteRoutine={this.deleteRoutine}/>
                     // <div key={routine.id}>
                     //     <h3>{routine.name} - {routine.difficulty}</h3>
                     //     <ul>
