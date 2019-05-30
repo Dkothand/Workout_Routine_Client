@@ -9,11 +9,17 @@ class Routine extends React.Component {
         }
         this.handleClick = this.handleClick.bind(this)
         this.removeRoutine = this.removeRoutine.bind(this)
+        this.closeDropdown = this.closeDropdown.bind(this)
     }
     handleClick() {
         this.setState(prevState => ({
             listOpen: !prevState.listOpen
         }))
+    }
+    closeDropdown() {
+        this.setState({
+            listOpen: false
+        })
     }
     removeRoutine(id) {
         // console.log(`exercise id ${id}`)
@@ -34,7 +40,8 @@ class Routine extends React.Component {
                 {(this.state.listOpen)
                 ? <Dropdown 
                 routine={this.props.routine}
-                handleClick={this.props.handleClick}/>
+                handleClick={this.props.handleClick}
+                closeDropdown={this.closeDropdown}/>
                 : null}
                 <ul>
                     {(this.props.routine.exercises.length)
