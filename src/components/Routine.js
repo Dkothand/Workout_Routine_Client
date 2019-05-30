@@ -14,6 +14,10 @@ class Routine extends React.Component {
             listOpen: !prevState.listOpen
         }))
     }
+    removeExercise(id) {
+        // console.log(`exercise id ${id}`)
+        this.props.deleteExercise(id)
+    }
     render() {
         return(
             <div key={this.props.routine.id}>
@@ -32,7 +36,9 @@ class Routine extends React.Component {
                     {(this.props.routine.exercises.length)
                     ? this.props.routine.exercises.map(exercise => {
                         return(
-                            <li key={exercise.id}>{exercise.name}</li>
+                            <li key={exercise.id}>{exercise.name}
+                            <span onClick={() => this.removeExercise(exercise.id)}>&times;</span>
+                            </li>
                         )
                     })
                     : <li>No exercises!</li>}

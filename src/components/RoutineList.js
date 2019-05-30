@@ -37,6 +37,10 @@ class RoutineList extends React.Component {
         })
         .catch(err => console.error(err))
     }
+    deleteExercise(exerciseId) {
+        // destroys association between exercise and routine in database, rerenders state to update browser
+        console.log(exerciseId)
+    }
     createRoutine(formData) {
         // Add routine to database and render on success
         fetch('/routines', {
@@ -69,7 +73,8 @@ class RoutineList extends React.Component {
                     <Routine 
                     key={routine.id}
                     routine={routine}
-                    handleClick={this.addExercise}/>
+                    handleClick={this.addExercise}
+                    deleteExercise={this.deleteExercise}/>
                     // <div key={routine.id}>
                     //     <h3>{routine.name} - {routine.difficulty}</h3>
                     //     <ul>
