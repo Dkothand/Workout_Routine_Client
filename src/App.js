@@ -1,12 +1,13 @@
 import React from 'react';
-import ExerciseList from './components/ExerciseList.js'
+import RoutineList from './components/RoutineList.js'
+// import ExerciseList from './components/ExerciseList.js'
 
 class App extends React.Component {
   render() {
     return (
       <div className="App">
         <h1>Hello World</h1>
-        <ExerciseList/>
+        <RoutineList/>
       </div>
     );
   }
