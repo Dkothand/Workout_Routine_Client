@@ -1,5 +1,6 @@
 import React from 'react'
-import NewRoutine from './NewRoutine';
+import NewRoutine from './NewRoutine.js'
+import Routine from './Routine.js'
 
 class RoutineList extends React.Component {
     constructor(props) {
@@ -39,18 +40,21 @@ class RoutineList extends React.Component {
             <NewRoutine handleSubmit={this.createRoutine}/>
             {this.state.routines.map(routine => {
                 return(
-                    <div key={routine.id}>
-                        <h3>{routine.name}</h3>
-                        <ul>
-                            {(routine.exercises.length)
-                            ? routine.exercises.map(exercise => {
-                                return(
-                                    <li key={exercise.id}>{exercise.name}</li>
-                                )
-                            })
-                            : <li>No exercises</li>}
-                        </ul>
-                    </div>
+                    <Routine 
+                    key={routine.id}
+                    routine={routine}/>
+                    // <div key={routine.id}>
+                    //     <h3>{routine.name} - {routine.difficulty}</h3>
+                    //     <ul>
+                    //         {(routine.exercises.length)
+                    //         ? routine.exercises.map(exercise => {
+                    //             return(
+                    //                 <li key={exercise.id}>{exercise.name}</li>
+                    //             )
+                    //         })
+                    //         : <li>No exercises!</li>}
+                    //     </ul>
+                    // </div>
                 )
             })}
             </>
