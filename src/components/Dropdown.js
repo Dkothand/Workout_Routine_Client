@@ -17,7 +17,6 @@ class Dropdown extends React.Component {
         .catch(err => console.error(err))
     }
     handleClick(id) {
-        // console.log(`exercise id ${id}, routine id, ${this.props.routine.id}`)
         // call function to pass exercise id and routine id up
         this.props.handleClick(id, this.props.routine.id)
     }
@@ -32,7 +31,8 @@ class Dropdown extends React.Component {
                                 <li 
                                 key={exercise.id}>
                                     {exercise.name}
-                                <button onClick={() => this.handleClick(exercise.id)}>Add</button>
+                                <button 
+                                onClick={() => this.handleClick(exercise.id)}>Add</button>
                                 </li>
                             </>
                 	    )

@@ -21,6 +21,20 @@ class RoutineList extends React.Component {
     }
     addExercise(exerciseId, routineId) {
         console.log(`exercise: ${exerciseId}, routine: ${routineId}`)
+        // send POST request to workouts to add relation for this exercise and routine
+        fetch('/workouts', {
+            body: JSON.stringify({
+                exercise_id: exerciseId,
+                routine_id: routineId
+            }),
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            }
+        }).then(res => res.json())
+        .then(jsonData => console.log(jsonData))
+        .catch(err => console.error(err))
     }
     createRoutine(formData) {
         // Add routine to database and render on success
