@@ -89,18 +89,6 @@ class RoutineList extends React.Component {
                     routine={routine}
                     handleClick={this.addExercise}
                     deleteRoutine={this.deleteRoutine}/>
-                    // <div key={routine.id}>
-                    //     <h3>{routine.name} - {routine.difficulty}</h3>
-                    //     <ul>
-                    //         {(routine.exercises.length)
-                    //         ? routine.exercises.map(exercise => {
-                    //             return(
-                    //                 <li key={exercise.id}>{exercise.name}</li>
-                    //             )
-                    //         })
-                    //         : <li>No exercises!</li>}
-                    //     </ul>
-                    // </div>
                 )
             })}
             </>

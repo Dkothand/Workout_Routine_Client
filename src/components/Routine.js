@@ -22,7 +22,6 @@ class Routine extends React.Component {
         })
     }
     removeRoutine(id) {
-        // console.log(`exercise id ${id}`)
         this.props.deleteRoutine(id)
     }
     render() {

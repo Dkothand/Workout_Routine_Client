@@ -17,7 +17,6 @@ class Dropdown extends React.Component {
         .catch(err => console.error(err))
     }
     handleClick(id) {
-        // call function to pass exercise id and routine id up
         this.props.handleClick(id, this.props.routine.id)
         this.props.closeDropdown()
     }
