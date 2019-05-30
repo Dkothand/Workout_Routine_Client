@@ -7,7 +7,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <h1>Hello World</h1>
+        <h1>Fitness Routine Builder</h1>
         <RoutineList/>
       </div>
     );

@@ -26,7 +26,7 @@ class Routine extends React.Component {
     }
     render() {
         return(
-            <div key={this.props.routine.id}>
+            <div className="routine" key={this.props.routine.id}>
                 <h3>
                     {this.props.routine.name} - {this.props.routine.difficulty}
                 </h3>

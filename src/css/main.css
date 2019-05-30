@@ -1,3 +1,36 @@
+html{
+    background-image:
+        linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+        ),
+        url("https://images.unsplash.com/photo-1534258936925-c58bed479fcb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=889&q=80");
+    background-size: cover;
+}
+
+body {
+    color: #fff;
+}
+
+button, input[type="submit"] {
+    background-color: green;
+    color: #fff;
+}
+
 h1 {
     text-align: center;
+    text-shadow: 2px 2px #000;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+}
+
+.routine {
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 0 10px;
+    flex-basis: 30%;
 }

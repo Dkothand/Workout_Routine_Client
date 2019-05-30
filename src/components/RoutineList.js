@@ -82,15 +82,17 @@ class RoutineList extends React.Component {
             <>
             <h1>Routine List</h1>
             <NewRoutine handleSubmit={this.createRoutine}/>
-            {this.state.routines.map(routine => {
-                return(
-                    <Routine 
-                    key={routine.id}
-                    routine={routine}
-                    handleClick={this.addExercise}
-                    deleteRoutine={this.deleteRoutine}/>
-                )
-            })}
+            <main>
+                {this.state.routines.map(routine => {
+                    return(
+                        <Routine 
+                        key={routine.id}
+                        routine={routine}
+                        handleClick={this.addExercise}
+                        deleteRoutine={this.deleteRoutine}/>
+                    )
+                })}
+            </main>
             </>
         );
     }
