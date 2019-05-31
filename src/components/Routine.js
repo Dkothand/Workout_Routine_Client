@@ -46,7 +46,7 @@ class Routine extends React.Component {
                     {(this.props.routine.exercises.length)
                     ? this.props.routine.exercises.map(exercise => {
                         return(
-                            <li key={exercise.id}>{exercise.name}
+                            <li key={exercise.id}>{exercise.name} - {exercise.sets}x{exercise.reps}
                             </li>
                         )
                     })
