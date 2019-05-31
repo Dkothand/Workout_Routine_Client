@@ -1,68 +1,21 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Workout Routine Builder
 
-## Available Scripts
+This project was created with the idea of having a centralized place to view and create workout routines. The user is able to add routines then fill them with exercises picked from a list. It was built in two days as a mini-project during my attendance at General Assembly's Software Engineering Immersive bootcamp.
 
-In the project directory, you can run:
+## Technologies
 
-### `npm start`
+The front end was bootstrapped with [Create-React-App](https://github.com/facebook/create-react-app).
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Styling was a combination of [Skeleton CSS](http://getskeleton.com/) as well as a small amount of custom CSS. 
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Future Goals
 
-### `npm test`
+There is a good amount left I would like to do with this project and it's something that I would like to return to after the course is over to continue building out as two days wasn't enough time to implement everything I wanted.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Currently the functions to add exercises to routines and to delete an entire routine rerender the state of all the routines, which I believe is not the ideal way. I would like to come back and move state to different components so that when an exercise is added to a routine, that routine component will have a state change rather than the entire list of routines. Same goes for deleting a routine.
 
-### `npm run build`
+- Additionally there are only options to add an exercise to a routine or to delete an entire routine. I would like to implement the ability to delete individual exercises from a routine.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Building out from here, possibly add pictures or videos of the different workouts if the user is unsure of how to do a particular exercise. 
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Improve overall appearence and styling
